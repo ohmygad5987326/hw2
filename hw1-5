@@ -1,0 +1,38 @@
+// scope and scope chain
+function b1(){
+	// var myVar;
+	console.log(myVar);//2
+}
+
+function a1(){
+	var myVar = 1;
+	b1();//?
+	console.log(myVar);//2
+}
+
+var myVar = 2;
+console.log(myVar); //1
+a1();
+
+function a2(){
+	var myVar = 1;
+	function b2(){
+		// var myVar;
+		console.log(myVar); //2
+	}
+	b2();
+	console.log(myVar); //1
+}
+
+var myVar = 2;
+console.log(myVar); //1
+a2();
+
+// variables lifting
+var firstname = 'Simon';
+var addSurname = () => {
+	var surname = 'Holmes';
+	var fullname = firstname + ' ' + surname;
+	var firstname = 'David';
+	console.log(fullname);//undefined Holmes
+}
